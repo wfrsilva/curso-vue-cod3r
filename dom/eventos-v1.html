@@ -1,0 +1,49 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+<h1>{{ titulo }}</h1><br><hr><br>
+<p>{{ contador }}</p>
+<button v-on:click="somar">Somar 1</button> &nbsp; &nbsp; &nbsp; &nbsp;
+<button class="button button-plus" v-on:click="somar"> <b> + </b> </button>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<button class="button button-less" v-on:click="diminuir"> <b>&nbsp;-&nbsp;</b> </button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Eventos V1 Template : video 11/32',
+            contador: 0
+        },
+        methods: {
+            somar(){
+                this.contador++
+            },
+            diminuir(){
+                if(this.contador > 0){
+                    this.contador--
+                }
+                
+            }
+        }
+    })
+</script>
+
+<style scoped>
+    .button {
+      border: none;
+      border-radius: 50px;
+      font-size: larger;
+      font-weight: 600;
+      color: white;
+    }
+    
+    .button-plus {
+      background-color: #3232ff;
+    }
+
+    .button-less {
+      background-color: #ff4c4c;
+    }
+
+    </style>

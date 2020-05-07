@@ -1,0 +1,51 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+<h1>{{ titulo }}</h1><br><hr><br>
+<p>{{ contador }}</p>
+<button v-on:click="somar">Somar 1</button> 
+
+<p class="p-mouse" v-on:mousemove="atualizarXY">Mouse: <br> x: {{ x }} y: {{ y }} <br></p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Eventos V2 Template : video 12/32',
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar(){
+                this.contador++
+            },
+            atualizarXY(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            }
+        }
+    })
+</script>
+
+<style scoped>
+    .button {
+      border: none;
+      border-radius: 50px;
+      font-size: larger;
+      font-weight: 600;
+      color: white;
+    }
+    
+    .button-plus {
+      background-color: #3232ff;
+    }
+
+    .button-less {
+      background-color: #ff4c4c;
+    }
+    .p-mouse{
+        background-color: #ddd;
+    }
+
+    </style>
