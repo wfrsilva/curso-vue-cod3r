@@ -1,0 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+<p><h1>{{ titulo }}</h1></p>
+<input type="text" v-bind:value="titulo" size="100"><hr>
+<input type="text" v-bind:value="titulo" v-on:input="titulo = $event.target.value" size="100"><hr>
+<input type="text" v-model="titulo" size="100">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'VueJS - Propriedades Reativas V1 - video 19/32'
+        }
+    })
+</script>

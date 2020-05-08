@@ -1,0 +1,27 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+<h1>{{ titulo }}</h1><br><hr>
+<p>{{ contador }}</p>
+
+<!-- <button v-on:click="somar">Somar 1</button> -->
+<button @click="somar">Somar 1</button><br><br>
+<!-- <input type="text" v-bind:value="contador"> -->
+<input type="text" :value="contador">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'VueJS - Sintaxe Reduzida \(Shorthands\) : video 22/32',
+            contador: 0
+        },
+        methods: {
+            somar(){
+                this.contador++
+            },
+            
+        }
+    })
+</script>
+

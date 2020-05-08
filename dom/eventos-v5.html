@@ -1,0 +1,49 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+<h1>{{ titulo }}</h1><br><hr><br>
+<p>{{ contador }}</p>
+<button v-on:click="somar(5, $event)">Somar 5</button> 
+
+<p class="p-mouse" v-on:mousemove="atualizarXY">Mouse: <br> x: {{ x }} y: {{ y }} <br>
+<span v-on:mousemove.stop.prevent="">PARAR x,y AQUI!!!</span>
+<span>Aqui voltou ...</span></p>
+<a v-on:click.prevent="" href="http://google.com">Google parado pelo von:click Prevent </a><br><br>
+<a v-on:click="naoNavegar" href="http://google.com">Google parado pelo metodo naoNavegar </a>
+<hr>
+<input type="text" v-on:keyup.enter.alt="exibirAlerta">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Eventos V5 Template : video 15/32',
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar(passo, event){
+                console.log(passo, event)
+                this.contador+= passo
+            },
+            atualizarXY(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            naoNavegar(event){
+                event.preventDefault()
+            },
+            exibirAlerta(){
+                alert('Estou te alertando, codorna!')
+            }
+        }
+    })
+</script>
+
+<style scoped>
+    .p-mouse{
+        background-color: #ddd;
+    }
+
+    </style>
